@@ -7,7 +7,6 @@ wheel>=0.29
 # data science
 numpy
 pandas
-scikit-learn
 
 # tests/linter
 black
@@ -18,7 +17,6 @@ yapf
 
 # API
 gcsfs
-google-cloud-storage
 mlflow
 s3fs
 
@@ -27,3 +25,8 @@ six>=1.14
 joblib
 memoized-property
 termcolor
+streamlit
+plotly
+
+# Need to delete after replacing with api
+yfinance
