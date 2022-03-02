@@ -51,7 +51,7 @@ class Stock:
         Plot time-serie line chart of closing price on a given plotly.graph_objects.Figure object
         """
         X = np.arange(1,100)
-        y = np.rand(100,)
+        y = np.random.rand(100,)
         fig = fig.add_trace(
             go.Scatter(
                 x=X,
