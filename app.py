@@ -9,7 +9,7 @@ import pandas as pd
 import streamlit as st
 import plotly.graph_objects as go
 
-from crypto import Stock
+from crypto import Crypto
 
 
 st.set_page_config(layout="wide", initial_sidebar_state="expanded")
@@ -55,10 +55,10 @@ SYMB = window_selection_c.selectbox("select currency", CRYPTO)
 # # # ------------------------Plot stock linechart--------------------
 
 fig=go.Figure()
-# stock = Stock(symbol=SYMB)
-stock = Stock()
-stock.load_data(START, END, inplace=True)
-fig = stock.plot_raw_data(fig)
+# crypto = Stock(symbol=SYMB)
+crypto = Crypto()
+crypto.load_data(START, END, inplace=True)
+fig = crypto.plot_raw_data(fig)
 
 #---------------styling for plotly-------------------------
 fig.update_layout(
@@ -78,4 +78,4 @@ st.write(fig)
 
 # change_c = st.sidebar.container()
 # with change_c:
-#     stock.show_delta()
+#     crypto.show_delta()

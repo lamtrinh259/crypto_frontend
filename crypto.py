@@ -9,7 +9,7 @@ import requests
 import yfinance as yf
 
 
-class Stock:
+class Crypto:
     """
     This class enables data loading, plotting and statistical analysis of a given stock,
      upon initialization load a sample of data to check if stock exists.
