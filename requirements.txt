@@ -27,6 +27,7 @@ memoized-property
 termcolor
 streamlit
 plotly
+requests
 
 # Need to delete after replacing with api
 yfinance
