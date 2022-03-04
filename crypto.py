@@ -16,14 +16,14 @@ class Crypto:
 
     """
 
-    def __init__(self, symbol="BTCUSD"):
+    def __init__(self, symbol="BTC"):
         """
         Object initialized with a currency, default='BTCUSD'
         """
         self.end = datetime.datetime.today()
         self.start = self.end - datetime.timedelta(days=4)
         self.symbol = symbol
-        self.data = self.load_data(self.start, self.end)
+        # self.data = self.load_data(self.start, self.end)
 
     def plot_raw_data(self, fig):
         """
@@ -78,3 +78,9 @@ class Crypto:
         cols[1].markdown(
             f"""<p style="color:{color};font-size:90%;margin-right:5px">{marker} \t {difference} {marker} {change} % </p>""",
             unsafe_allow_html=True)
+
+    def test_api(self):
+        url = 'http://127.0.0.1:8000/fbprophet_predict'
+        params = {'selected_crypto':self.symbol}
+        response = requests.get(url,params=params)
+        return response
