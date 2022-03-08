@@ -69,7 +69,7 @@ heroku_upload_public_key:
 	-@heroku keys:add ~/.ssh/id_ed25519.pub
 
 heroku_create_app:
-	-@heroku create --ssh-git cryptocurrency-forecast --region eu 
+	-@heroku create --ssh-git cryptocurrency-forecast --region eu
 
 deploy_heroku:
 	-@git push heroku master
