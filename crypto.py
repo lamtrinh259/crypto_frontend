@@ -1,5 +1,6 @@
 from cProfile import label
 import datetime
+from turtle import fillcolor
 import streamlit as st
 import plotly.graph_objects as go
 import matplotlib.pyplot as plt
@@ -25,6 +26,7 @@ class Crypto:
         self.symbol = symbol
         self.model = model
         self.data = None
+        self.pred = None
         # self.data = self.load_data(self.start, self.end)
 
     def plot_raw_data(self, fig):
@@ -95,8 +97,8 @@ class Crypto:
 
     def all_grapher(self, data, pred):
         pred_x = pred.index[-14:]
-        end_date = pd.to_datetime(pred.index[-1])
-        start_date = end_date-timedelta(days=30)
+        end_date = pred.index[-1]
+        # start_date = end_date-timedelta(days=30)
 
         fig = go.Figure(data=[
                 go.Candlestick(x = data.index,
@@ -108,7 +110,10 @@ class Crypto:
                 go.Scatter( x = pred_x,
                             y = pred['Predicted Price'],
                             mode = 'lines',
-                            name = 'Prediction'),
+                            name = 'Prediction',
+                            line=dict(color='rgba(51, 153, 255, 1)'),
+                            # fillcolor= 'rgba(51, 153, 255, 1)'
+                            ),
                 go.Scatter( x=pred_x, # +pred_x[::-1], # x, then x reversed,
                             y=pred['MAX Price'] , # upper, then lower reversed
                             mode = 'lines',
@@ -120,10 +125,10 @@ class Crypto:
                             fill='tonexty',
                             mode = 'lines',
                             line=dict(width=0),
-                            fillcolor='rgba(68, 68, 68, 0.3)',
+                            fillcolor='rgba(51, 153, 255, 0.2)',
                             hoverinfo="skip",
                             showlegend=False)])
-        fig.update_xaxes(type="date", range=[start_date, end_date])
+        # fig.update_xaxes(type="date", range=[start_date, end_date])
         return fig
 
     def test_api(self):
@@ -138,10 +143,13 @@ class Crypto:
 
     def predict_model(self):
 
-        url = 'http://127.0.0.1:8000/fbprophet_predict' # Update with url from GCP
+        # url = 'http://127.0.0.1:8000/predict_model' # Update with url from GCP
+        url = 'https://cryptopredict-h7pfeyag5q-du.a.run.app/predict_model'
         params = {'model':self.model,'selected_crypto':self.symbol,'format':'json'}
         response = requests.get(url, params=params).json()
-        self.data = pd.DataFrame(response['data']).reset_index()
-        pred = pd.DataFrame(response['predict'])
+        self.data = pd.DataFrame(response['data'])
+        self.pred = pd.DataFrame(response['predict'])
+        self.data.index = pd.to_datetime(self.data.index, format='%Y/%m/%d')
+        self.pred.index = pd.to_datetime(self.pred.index, format='%Y/%m/%d')
 
-        return self.all_grapher(self.data, pred)
+        return self.all_grapher(self.data, self.pred)

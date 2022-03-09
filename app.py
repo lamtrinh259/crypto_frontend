@@ -67,16 +67,18 @@ window_selection_c.write('3. Invest According to the Predictions')
 
 # # # ------------------------Plot stock linechart--------------------
 
-fig=go.Figure()
 # crypto = Stock(symbol=SYMB)
-crypto = Crypto(SYMB.split('/')[0], MODEL)
-# crypto.load_data(START, END, inplace=True)
-# fig = crypto.plot_raw_data(fig)
-fig = crypto.predict_model()
 
 change_c = st.sidebar.container()
 with change_c:
+    fig=go.Figure()
+    crypto = Crypto(SYMB.split('/')[0], MODEL)
+    # crypto.load_data(START, END, inplace=True)
+    # fig = crypto.plot_raw_data(fig)
+    fig = crypto.predict_model()
     crypto.predict_model()
+
+
 #---------------styling for plotly-------------------------
 fig.update_layout(
             xaxis_title='Date',
@@ -94,12 +96,14 @@ fig.update_layout(
 )
 st.write(fig)
 
+
 csv = convert_df(crypto.data)
+
 
 st.download_button(
     label="Download dataset as CSV",
     data=csv,
-    file_name='large_df.csv',
+    file_name='dataset.csv',
     mime='text/csv',
 )
 
@@ -119,13 +123,13 @@ with col2:
 with col3:
     # Description for the fear and greed
     st.write('### {} Predictions'.format(MODEL))
-    st.write(test_df)
+    st.write(crypto.pred)
 
-    csv = convert_df(test_df)
+    csv = convert_df(crypto.pred)
 
     st.download_button(
         label="Download data as CSV",
         data=csv,
-        file_name='large_df.csv',
+        file_name='predictions.csv',
         mime='text/csv',
     )
