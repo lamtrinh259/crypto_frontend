@@ -4,8 +4,6 @@ A simple streamlit app
 """
 
 import datetime
-from tkinter.ttk import Style
-from turtle import onclick, title, width
 import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
