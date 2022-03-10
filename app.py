@@ -116,7 +116,7 @@ def predict():
 
         pred_df = crypto.pred.copy()
         pred_df = pred_df.applymap('{:,.2f}'.format)
-        pred_df.columns = ['Predict','Min','Max']
+        pred_df = pred_df.rename(columns = {'MIN Price': 'Min', 'MAX Price': 'Max', 'Predicted Price':'Predict'})
         st.dataframe(pred_df)
 
         csv = convert_df(crypto.pred)
