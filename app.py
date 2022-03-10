@@ -57,8 +57,9 @@ def predict():
     fig.update_layout(
                 xaxis_title='Date',
                 yaxis_title='USD',
+                font=dict(size=17),
                 yaxis={'side': 'right'} ,
-                title= '{} Prediction for {}/USD'.format(crypto.model, crypto.symbol),
+                title= '<b>{} Prediction for {}/USD</b>'.format(crypto.model, crypto.symbol),
                 title_x=0.5,
                 # width=1450,  # Change Chart width to Constant
                 # height=800, # leave commented out for default column size
@@ -82,8 +83,9 @@ def predict():
                 template="plotly_dark"
 
     )
+    fig['layout']['title']['font'] = dict(size=28)
     fig.add_vrect(x0=crypto.data.index[-1], x1=crypto.data.index[-1], \
-        annotation_text='End of historical date')
+        annotation_text='End of historical data')
 
     # column_graph = st.columns(1)
     # with column_graph:
@@ -113,7 +115,7 @@ def predict():
         st.write('### Why Measure Fear and Greed?')
         st.write('The fear and greed index is a composite score number that is calculated based on these 6 factors surrounding Bitcoin (corresponding weights inside parentheses): ')
         st.markdown('- volatility and maximum drawdown of Bitcoin (25%)\n- market momentum/volume (25%)\n- social media (15%)\n- surveys (15%)\n- dominance (10%)\n- trends (10%)')
-        st.write('A zero score means `Extreme Fear`, while 100 means `Extreme Greed`. If the score is between 46 and 54, then the market is feeling neutral. In general, while the market is in `extreme fear` it signifies a good opportunity to **buy**. On the other hand, if the market is feeling extremely greedy (close to 100), then it signifies that there may be a correction (prices will come down) in the near future. Credits go to alternative.me for providing this index.')
+        st.write('A zero score means **Extreme Fear**, while 100 means **Extreme Greed**. If the score is between 46 and 54, then the market is feeling neutral. In general, while the market is in **extreme fear** it signifies a good opportunity to **buy**. On the other hand, if the market is feeling extremely greedy (close to 100), then it signifies that there may be a correction (prices will come down) in the near future. Credits go to alternative.me for providing this index.')
         # st.write('The crypto market behaviour is very emotional. People tend to get greedy when the market is rising which results in **FOMO** (Fear of missing out). Also, people often sell their coins in irrational reaction of seeing red numbers. With our Fear and Greed Index, we try to save you from your own emotional overreactions. There are two simple assumptions:')
         # st.write('`Extreme fear` can be a sign that investors are too worried. That could be a buying opportunity.')
         # st.write('##### When Investors are getting too greedy, that means the market is due for a correction.')
@@ -140,7 +142,8 @@ def predict():
 def index_page():
     st.markdown("<h1 style='text-align: center; color: white;'>Welcome To Crypto Predict</h1>", unsafe_allow_html=True)
     # Welcome to the world of cryptocurrency prices forecasting. We are a group of crypto enthusiasts who just happen to also know about data science and machine learning. We created this app for users like you that are interested in cryptocurrency, and want to gather more information about some of the crypto assets in the top 100 (by market capitalization) so that you can make your own informed decisions. You can begin by selecting the crypto asset of interest and the corresponding forecast method in the left panel.
-    st.markdown('Welcome to the world of cryptocurrency prices forecasting.\n We are a group of crypto enthusiasts who just happen to also know about data science and machine learning. We created this app for users like you that are interested in cryptocurrency, and want to gather more information about some of the crypto assets in the top 100 (by market capitalization) so that you can make your own informed decisions. You can begin by selecting the crypto asset of interest and the corresponding forecast method in the left panel.')
+    st.markdown('Welcome to the world of cryptocurrency prices forecasting.\n We are a group of crypto enthusiasts who just happen to also know about data science and machine learning. We created this app for users like you that are interested in cryptocurrency, and want to gather more information about some of the crypto assets in the top 100 (by market capitalization) so that you can make your own informed decisions. ')
+    st.markdown('You can begin by selecting the crypto asset of interest and the corresponding forecast method in the left panel.')
     st.markdown('')
     st.write('<iframe src="https://giphy.com/embed/7FBY7h5Psqd20" width="418" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',unsafe_allow_html=True)
     st.write('## Disclaimer: Not Financial Advice')
