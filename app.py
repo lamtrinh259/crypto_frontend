@@ -112,7 +112,7 @@ def predict():
         st.image('https://alternative.me/images/fng/crypto-fear-and-greed-index-{}.png'.format(last_date))
     with col2:
         # Description for the fear and greed
-        st.write('### {} Forecasts'.format(model_map[model_sel]))
+        st.write('### {} Forecasts'.format(model_display[model_sel]))
 
         pred_df = crypto.pred.copy()
         pred_df = pred_df.applymap('{:,.2f}'.format)
