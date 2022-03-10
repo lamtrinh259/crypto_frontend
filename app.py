@@ -9,7 +9,7 @@ import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
 
-from crypto import Crypto
+from crypto_frontend.crypto import Crypto
 
 st.set_page_config(layout="wide", initial_sidebar_state="expanded")
 
