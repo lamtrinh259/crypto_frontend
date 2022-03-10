@@ -103,7 +103,7 @@ def predict():
         st.write(' ')
         last_date = pd.to_datetime(crypto.data.index[-1].replace('T00:00:00',''))
         last_date = '{dt.year}-{dt.month}-{dt.day}'.format(dt = last_date)
-        st.image('https://alternative.me/images/fng/crypto-fear-and-greed-index-{}.png'.format(last_date), width=390)
+        st.image('https://alternative.me/images/fng/crypto-fear-and-greed-index-{}.png'.format(last_date))
     with col2:
         # Historical Data for the fear and greed
         st.write('### Why Measure Fear and Greed?')

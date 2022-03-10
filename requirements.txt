@@ -28,7 +28,6 @@ termcolor
 streamlit
 plotly
 requests
-turtle
 
 # Need to delete after replacing with api
 yfinance
