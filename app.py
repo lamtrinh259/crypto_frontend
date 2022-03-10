@@ -50,7 +50,7 @@ def predict():
     # crypto.load_data(START, END, inplace=True)
     # fig = crypto.plot_raw_data(fig)
     fig = crypto.predict_model()
-    crypto.predict_model()
+    # crypto.predict_model()
 
 
     #---------------styling for plotly-------------------------
@@ -59,8 +59,8 @@ def predict():
                 yaxis_title='USD',
                 title= '{} Prediction for {}/USD'.format(crypto.model, crypto.symbol),
                 title_x=0.5,
-                width=1450,  # Change Chart width to Constant
-                height=800,
+                # width=1450,  # Change Chart width to Constant
+                # height=800, # leave commented out for default column size
                 margin=dict(l=0, r=0, t=50, b=30, pad=0),
                 legend=dict(
                     x=0,
@@ -81,7 +81,8 @@ def predict():
                 template="plotly_dark"
 
     )
-    fig.add_vrect(x0=crypto.data.index[-1], x1=crypto.data.index[-1])
+    fig.add_vrect(x0=crypto.data.index[-1], x1=crypto.data.index[-1], \
+        annotation_text='End of historical date')
     st.write(fig)
 
 
