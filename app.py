@@ -57,32 +57,36 @@ def predict():
     fig.update_layout(
                 xaxis_title='Date',
                 yaxis_title='USD',
+                yaxis={'side': 'right'} ,
                 title= '{} Prediction for {}/USD'.format(crypto.model, crypto.symbol),
                 title_x=0.5,
                 # width=1450,  # Change Chart width to Constant
                 # height=800, # leave commented out for default column size
                 margin=dict(l=0, r=0, t=50, b=30, pad=0),
                 legend=dict(
-                    x=0,
-                    y=0.99,
+                    x=0.45,
+                    y=0.01,
                     # traceorder="normal",
                     # font=dict(size=15),
                     traceorder="reversed",
                     font=dict(
                         family="Courier",
-                        size=20,
+                        # size=20,
                         color="black"
                     ),
                     bgcolor="LightSteelBlue",
                     bordercolor="White",
                     borderwidth=1
                 ),
-                autosize=False,
+                # autosize=False,
                 template="plotly_dark"
 
     )
     fig.add_vrect(x0=crypto.data.index[-1], x1=crypto.data.index[-1], \
         annotation_text='End of historical date')
+
+    # column_graph = st.columns(1)
+    # with column_graph:
     st.write(fig)
 
 
