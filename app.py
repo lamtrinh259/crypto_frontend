@@ -172,9 +172,9 @@ DEFAULT_START=YESTERDAY - datetime.timedelta(days=700)
 
 # ---------------stock selection------------------
 symb_map = {
-    'Bitcoin(USD)':'BTC',
-    'Ethereum(USD)':'ETH',
-    'LiteCoin(USD)':'LTC'
+    'Bitcoin (USD)':'BTC',
+    'Ethereum (USD)':'ETH',
+    'LiteCoin (USD)':'LTC'
 }
 model_map = {
     'Short-Term (Prophet)':'FB_PROPHET',
@@ -186,7 +186,7 @@ model_display = {
     'Short-Term (SARIMAX)':'SARIMAX',
     'Long-Term  (LSTM)':'LSTM'
 }
-CRYPTO = np.array([ "Bitcoin(USD)", "Ethereum(USD)", "LiteCoin(USD)"])
+CRYPTO = np.array([ "Bitcoin (USD)", "Ethereum (USD)", "LiteCoin (USD)"])
 MODEL_LI = np.array(['Short-Term (Prophet)', 'Short-Term (SARIMAX)', 'Long-Term  (LSTM)'])
 symbol_sel = window_selection_c.selectbox("Currency", CRYPTO)
 model_sel = window_selection_c.selectbox("Model", MODEL_LI)
