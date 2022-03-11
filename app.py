@@ -130,7 +130,7 @@ def predict():
     # Historical Data for the fear and greed
     st.write('### Why Measure Fear and Greed?')
     st.write('The fear and greed index is a composite score number that is calculated based on these 6 factors surrounding Bitcoin (corresponding weights inside parentheses): ')
-    st.markdown('- volatility and maximum drawdown of Bitcoin (25%)\n- market momentum/volume (25%)\n- social media (15%)\n- surveys (15%)\n- dominance (10%)\n- trends (10%)')
+    st.markdown('- Volatility and maximum drawdown of Bitcoin (25%)\n- Market momentum/volume (25%)\n- Social media (15%)\n- Surveys (15%)\n- Dominance (10%)\n- Trends (10%)')
     st.write('A zero score means **Extreme Fear**, while 100 means **Extreme Greed**. If the score is between 46 and 54, then the market is feeling neutral. In general, while the market is in **extreme fear** it signifies a good opportunity to **buy**. On the other hand, if the market is feeling extremely greedy (close to 100), then it signifies that there may be a correction (prices will come down) in the near future. Credits go to alternative.me for providing this index.')
     # st.write('The crypto market behaviour is very emotional. People tend to get greedy when the market is rising which results in **FOMO** (Fear of missing out). Also, people often sell their coins in irrational reaction of seeing red numbers. With our Fear and Greed Index, we try to save you from your own emotional overreactions. There are two simple assumptions:')
     # st.write('`Extreme fear` can be a sign that investors are too worried. That could be a buying opportunity.')
