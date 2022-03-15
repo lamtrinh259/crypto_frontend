@@ -1,5 +1,5 @@
 # Front end for cryptocurrencies prices forecasting
-- Document here the project: crypto_frontend
+- Repo name: crypto_frontend
 - Description: Repository for the front-end of the cryptocurrencies prices forecasting
 - Data Source: from Bitfinex exchange
 - Type of project: using ML algorithms to forecast future prices of crypto
