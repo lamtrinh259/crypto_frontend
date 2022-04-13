@@ -1,3 +1,6 @@
+We have a YouTube video where my team and I presented the final project at Le Wagon. 
+https://youtu.be/-F3EDyv4pKo?t=703
+
 # Front end for cryptocurrencies prices forecasting
 - Repo name: crypto_frontend
 - Description: Repository for the front-end of the cryptocurrencies prices forecasting
