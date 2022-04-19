@@ -12,15 +12,15 @@
 # - activate the tests in GitHub CI
 # - uncomment the content of the CD paragraph (lines 57-75)
 
-name: Python package
+# name: Python package
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+# on:
+#   push:
+#     branches: [ master ]
+#   pull_request:
+#     branches: [ master ]
 
-jobs:
+# jobs:
 
   # 🤖 CI paragraph
   #
@@ -29,15 +29,15 @@ jobs:
   #   (the `name` keys should be at the same level as the `uses` key)
   #   (the `strategy` key should be at the same level as the `steps` key)
 
-  build:
+  # build:
 
-    runs-on: ubuntu-latest
+  #   runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v2
-    - name: Say hello
-      run: |
-        echo "Hello, World!"
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   - name: Say hello
+  #     run: |
+  #       echo "Hello, World!"
     # - name: Set up Python ${{ matrix.python-version }}
     #   uses: actions/setup-python@v1
     #   with:
