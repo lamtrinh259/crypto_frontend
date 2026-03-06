@@ -16,6 +16,7 @@ st.set_page_config(layout="wide", initial_sidebar_state="expanded")
 def predict():
     # st.title('Crypto forecast dashboard')
     st.markdown("<h1 style='text-align: center; color: white;'>Crypto forecast dashboard</h1>", unsafe_allow_html=True)
+    
     test_df = pd.DataFrame({
         'first column': [1, 2, 3, 4],
         'second column': [10, 20, 30, 40],
@@ -50,6 +51,11 @@ def predict():
     # crypto.load_data(START, END, inplace=True)
     # fig = crypto.plot_raw_data(fig)
     fig = crypto.predict_model()
+    
+    # Show warning if using demo data
+    if not crypto.api_available:
+        st.warning("⚠️ The prediction API is currently unavailable. Showing demo data for demonstration purposes.")
+    
     # crypto.predict_model()
 
 
